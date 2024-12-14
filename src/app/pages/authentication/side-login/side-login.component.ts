@@ -32,38 +32,37 @@ export class AppSideLoginComponent {
     private authService: AuthService
   ) {
     this.loginForm = this.fb.group({
-      usuario: [''],
-      password: [''],
+      usuario: ['',Validators.required],
+      password: ['',Validators.required],
     });
   }
 
-  get f() {
-    return this.loginForm.controls;
-  }
-
-  submit() {
-    // console.log(this.form.value);
-    this.router.navigate(['/']);
-  }
 
   onLogin() {
+    if (this.loginForm.invalid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Formulario incompleto',
+        text: 'Por favor, ingresar los datos de usuario.',
+        confirmButtonText: 'Aceptar',
+      });
+      return;
+    }
+
     const { usuario, password } = this.loginForm.value;
     this.authService.login(usuario, password).subscribe((resp) => {
       if (resp) {
-        // this.router.navigate(['/']);
-
         const storedUser = localStorage.getItem('usuario');
         if (storedUser) {
-          const user = JSON.parse(storedUser); // Convertir a objeto
-          const userType = user.Tipo; // Leer el tipo del usuario
+          const user = JSON.parse(storedUser); 
+          const userType = user.Tipo; 
 
-          // Redirigir basado en el tipo
+       
           if (userType === 'profesion') {
             this.router.navigate(['/inicio/datos']);
           } else if (userType === 'reclutador') {
             this.router.navigate(['/inicio/filtros']);
-          } else {
-            // En caso de que el tipo no sea reconocido, redirigir al login
+          } else {           
             this.router.navigate(['/authentication/login']);
           }
         }
