@@ -1,0 +1,69 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">Mis Datos</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <form [formGroup]="userForm">
+      <div class="row">
+        <!-- Nombre -->
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Nombres</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput formControlName="Nombres" placeholder="Nombres" />
+          </mat-form-field>
+        </div>
+        
+        <!-- Apellidos -->
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Apellidos</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput formControlName="Apellidos" placeholder="Apellidos" />
+          </mat-form-field>
+        </div>
+        
+        <!-- Celular -->
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Celular</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput formControlName="Celular" placeholder="Celular" />
+          </mat-form-field>
+        </div>
+
+        <!-- Correo -->
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Correo</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput type="email" formControlName="Correo" placeholder="Correo electrónico" />
+          </mat-form-field>
+        </div>
+        
+        <!-- Usuario -->
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Usuario</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput formControlName="usuario" placeholder="Usuario" />
+          </mat-form-field>
+        </div>
+        
+        <!-- Tipo -->
+
+        
+        <!-- Profesión -->
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Profesión</mat-label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-select formControlName="Profesion">
+              <mat-option *ngFor="let option of profesionList" [value]="option.value">{{ option.viewValue }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        
+        <!-- Contraseña -->
+
+      </div>
+
+      <!-- Botones -->
+
+    </form>
+  </mat-card-content>
+</mat-card>

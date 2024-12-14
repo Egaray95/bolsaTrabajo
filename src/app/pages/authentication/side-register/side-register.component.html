@@ -1,0 +1,199 @@
+<!-- <div
+  class="blank-layout-container justify-content-center align-items-center bg-light"
+>
+  <div
+    class="position-relative row w-100 h-100 bg-gredient justify-content-center"
+  >
+    <div class="col-lg-6 d-flex align-items-center">
+      <mat-card class="cardWithShadow theme-card">
+        <mat-card-header>
+          <mat-card-title class="m-b-0">Registro Profesional</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="b-t-1">
+          <form>
+            <div class="row">
+              <div class="col-lg-6">
+                
+                <mat-label class="f-w-600 m-b-8 d-block">Nombres</mat-label>
+                <mat-form-field
+                  appearance="outline"
+                  class="w-100"
+                  color="primary"
+                >
+                  <input matInput placeholder="..." />
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+               
+                <mat-label class="f-w-600 m-b-8 d-block">Apellidos</mat-label>
+                <mat-form-field
+                  appearance="outline"
+                  class="w-100"
+                  color="primary"
+                >
+                  <input matInput placeholder="..." />
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+               
+                <mat-label class="f-w-600 m-b-8 d-block">Correo</mat-label>
+                <mat-form-field
+                  appearance="outline"
+                  class="w-100"
+                  color="primary"
+                >
+                  <input matInput type="email" placeholder="..." />
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+              
+                <mat-label class="f-w-600 m-b-8 d-block">Celular</mat-label>
+                <mat-form-field
+                  appearance="outline"
+                  class="w-100"
+                  color="primary"
+                >
+                  <input matInput type="email" placeholder="..." />
+                </mat-form-field>
+              </div>
+
+              <div class="col-lg-6">
+                <mat-label class="f-w-600 m-b-8 d-block">Profesión</mat-label>
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-select [(value)]="selectedState">
+                    @for(option of state; track option.value) {
+                    <mat-option [value]="option.value">{{
+                      option.viewValue
+                    }}</mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="col-lg-12">
+               
+                <mat-label class="f-w-600 m-b-8 d-block">CV</mat-label>
+                <mat-form-field
+                  appearance="outline"
+                  class="w-100"
+                  color="primary"
+                >
+                  <ngx-mat-file-input> </ngx-mat-file-input>
+                </mat-form-field>
+              </div>
+
+              <div class="col-lg-6">
+                
+                <mat-label class="f-w-600 m-b-8 d-block">Usuario</mat-label>
+                <mat-form-field
+                  appearance="outline"
+                  class="w-100"
+                  color="primary"
+                >
+                  <input matInput placeholder="..." />
+                </mat-form-field>
+              </div>
+
+              <div class="col-lg-6">
+                
+                <mat-label class="f-w-600 m-b-8 d-block">Password</mat-label>
+                <mat-form-field
+                  appearance="outline"
+                  class="w-100"
+                  color="primary"
+                >
+                  <input matInput type="password" placeholder="***" />
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="m-t-12">
+              <button
+                mat-stroked-button
+                color="warn"
+                class="m-r-8"
+                (click)="volverLogin()"
+              >
+                Volver
+              </button>
+              <button mat-flat-button color="primary">Registrar</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="blank-layout-container justify-content-center align-items-center bg-light">
+  <div class="position-relative row w-100 h-100 bg-gradient justify-content-center">
+    <div class="col-lg-6 d-flex align-items-center">
+      <mat-card class="cardWithShadow theme-card">
+        <mat-card-header>
+          <mat-card-title class="m-b-0">Registro Profesional</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="b-t-1">
+          <form [formGroup]="registroForm" (ngSubmit)="guardarFormulario()">
+            <div class="row">
+              <div class="col-lg-6">
+                <mat-label class="f-w-600 m-b-8 d-block">Nombres</mat-label>
+                <mat-form-field appearance="outline" class="w-100" color="primary">
+                  <input matInput formControlName="nombres" placeholder="..." />
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+                <mat-label class="f-w-600 m-b-8 d-block">Apellidos</mat-label>
+                <mat-form-field appearance="outline" class="w-100" color="primary">
+                  <input matInput formControlName="apellidos" placeholder="..." />
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+                <mat-label class="f-w-600 m-b-8 d-block">Correo</mat-label>
+                <mat-form-field appearance="outline" class="w-100" color="primary">
+                  <input matInput type="email" formControlName="correo" placeholder="..." />
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+                <mat-label class="f-w-600 m-b-8 d-block">Celular</mat-label>
+                <mat-form-field appearance="outline" class="w-100" color="primary">
+                  <input matInput type="tel" formControlName="celular" placeholder="..." />
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+                <mat-label class="f-w-600 m-b-8 d-block">Profesión</mat-label>
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-select formControlName="profesion">
+                    <mat-option *ngFor="let option of profesionList" [value]="option.value">{{ option.viewValue }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-12">
+                <mat-label class="f-w-600 m-b-8 d-block">CV</mat-label>
+                <mat-form-field appearance="outline" class="w-100" color="primary">
+                  <ngx-mat-file-input [formControl]="fileControl" [multiple]="false"  [accept]="'application/pdf'" > </ngx-mat-file-input>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+                <mat-label class="f-w-600 m-b-8 d-block">Usuario</mat-label>
+                <mat-form-field appearance="outline" class="w-100" color="primary">
+                  <input matInput formControlName="usuario" placeholder="..." />
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+                <mat-label class="f-w-600 m-b-8 d-block">Password</mat-label>
+                <mat-form-field appearance="outline" class="w-100" color="primary">
+                  <input matInput type="password" formControlName="contrasena" placeholder="***" />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="m-t-12">
+              <button mat-stroked-button color="warn" class="m-r-8" (click)="volverLogin()">Volver</button>
+              <button mat-flat-button color="primary" type="submit" >Registrar</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

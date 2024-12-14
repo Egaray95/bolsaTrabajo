@@ -1,0 +1,100 @@
+<div class="filter-card">
+
+  <mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+      <mat-card-title class="m-b-0">Filtros</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+   
+        <div class="row">
+          <!-- Nombre -->
+          <div class="col-lg-6">
+            <mat-label class="f-w-600 m-b-8 d-block">Apellido</mat-label>
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Apellido</mat-label>
+              <input matInput [formControl]="apellidoFilter">
+            </mat-form-field>
+          </div>
+          
+          <!-- Apellidos -->
+          <div class="col-lg-6">
+            <mat-label class="f-w-600 m-b-8 d-block">Apellidos</mat-label>
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Profesion</mat-label>
+              <mat-select [formControl]="profesionFilter">
+                <mat-option *ngFor="let p of profesionList" [value]="p.value">{{ p.viewValue }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="m-t-12">
+            <button mat-raised-button color="primary" class="m-r-8" (click)="applyFilters()">Aplicar filtros</button>
+            <button mat-raised-button color="accent" (click)="clearFilters()">Limpiar filtros</button>
+          </div>
+    
+  
+        </div>
+  
+  
+  
+    </mat-card-content>
+  </mat-card>
+  
+</div>
+
+
+
+<mat-card class="cardWithShadow">
+  <mat-card-content>
+    <mat-card-title>Lista de Profesionales</mat-card-title>
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource" class="w-100">
+        <!-- Índice Column -->
+        <ng-container matColumnDef="index">
+          <th mat-header-cell *matHeaderCellDef>#</th>
+          <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+        </ng-container>
+
+        <!-- Nombres Column -->
+        <ng-container matColumnDef="Nombres">
+          <th mat-header-cell *matHeaderCellDef>Nombres</th>
+          <td mat-cell *matCellDef="let element">{{ element.Nombres }}</td>
+        </ng-container>
+
+        <!-- Apellidos Column -->
+        <ng-container matColumnDef="Apellidos">
+          <th mat-header-cell *matHeaderCellDef>Apellidos</th>
+          <td mat-cell *matCellDef="let element">{{ element.Apellidos }}</td>
+        </ng-container>
+
+        <!-- Celular Column -->
+        <ng-container matColumnDef="Celular">
+          <th mat-header-cell *matHeaderCellDef>Celular</th>
+          <td mat-cell *matCellDef="let element">{{ element.Celular }}</td>
+        </ng-container>
+
+        <!-- Correo Column -->
+        <ng-container matColumnDef="Correo">
+          <th mat-header-cell *matHeaderCellDef>Correo</th>
+          <td mat-cell *matCellDef="let element">{{ element.Correo }}</td>
+        </ng-container>
+
+        <!-- Profesión Column -->
+        <ng-container matColumnDef="Profesion">
+          <th mat-header-cell *matHeaderCellDef>Profesion</th>
+          <td mat-cell *matCellDef="let element">{{ getProfesionViewValue(element.Profesion) }}</td>
+        </ng-container>
+
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="Acciones">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <a [href]="element.UrlCV" target="_blank" download>Descargar PDF</a>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
