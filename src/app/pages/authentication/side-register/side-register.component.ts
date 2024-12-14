@@ -53,11 +53,24 @@ export class AppSideRegisterComponent {
   registroForm: FormGroup;
   fileControl: FormControl;
   profesionList: profesion[] = [
-    { value: '1', viewValue: 'Ingeniero Civil' },
-    { value: '2', viewValue: 'Administrador' },
-    { value: '3', viewValue: 'Médico General' },
-    { value: '4', viewValue: 'Ingeniero de Sistemas' },
+    { value: '1', viewValue: 'Ingeniería Eléctrica' },
+    { value: '2', viewValue: 'Ingeniería Mecánica' },
+    { value: '3', viewValue: 'Ingeniería en Sistemas Industriales' },
+    { value: '4', viewValue: 'Ingeniería Civil' },
+    { value: '5', viewValue: 'Ingeniería en sistemas' },
+    { value: '6', viewValue: 'Arquitectura' },
   ];
+
+  /**
+   * 
+   * • Ingeniería Eléctrica
+• Ingeniería Mecánica
+• Ingeniería en Sistemas Industriales
+• Ingeniería Biomédica
+• Ingeniería Civil
+• Ingeniería en sistemas
+   * 
+   */
 
   constructor(
     private fb: FormBuilder,

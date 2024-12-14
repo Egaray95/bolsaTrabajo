@@ -10,44 +10,10 @@ import { AuthService } from 'src/app/services/auth-service.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 // table 1
-export interface productsData {
-  id: number;
-  imagePath: string;
-  uname: string;
-  budget: number;
-  priority: string;
+interface profesion {
+  value: string;
+  viewValue: string;
 }
-
-const PRODUCT_DATA: productsData[] = [
-  {
-    id: 1,
-    imagePath: 'assets/images/profile/user-1.jpg',
-    uname: 'iPhone 13 pro max-Pacific Blue-128GB storage',
-    budget: 180,
-    priority: 'confirmed',
-  },
-  {
-    id: 2,
-    imagePath: 'assets/images/profile/user-2.jpg',
-    uname: 'Apple MacBook Pro 13 inch-M1-8/256GB-space',
-    budget: 90,
-    priority: 'cancelled',
-  },
-  {
-    id: 3,
-    imagePath: 'assets/images/profile/user-3.jpg',
-    uname: 'PlayStation 5 DualSense Wireless Controller',
-    budget: 120,
-    priority: 'rejected',
-  },
-  {
-    id: 4,
-    imagePath: 'assets/images/profile/user-4.jpg',
-    uname: 'Amazon Basics Mesh, Mid-Back, Swivel Office',
-    budget: 160,
-    priority: 'confirmed',
-  },
-];
 
 @Component({
   selector: 'app-tables',
@@ -66,12 +32,15 @@ const PRODUCT_DATA: productsData[] = [
 })
 export class AppTablesComponent implements OnInit {
 
-  profesionList = [
-    { value: '1', viewValue: 'Ingeniero Civil' },
-    { value: '2', viewValue: 'Administrador' },
-    { value: '3', viewValue: 'Médico General' },
-    { value: '4', viewValue: 'Ingeniero de Sistemas' },
+  profesionList: profesion[] = [
+    { value: '1', viewValue: 'Ingeniería Eléctrica' },
+    { value: '2', viewValue: 'Ingeniería Mecánica' },
+    { value: '3', viewValue: 'Ingeniería en Sistemas Industriales' },
+    { value: '4', viewValue: 'Ingeniería Civil' },
+    { value: '5', viewValue: 'Ingeniería en sistemas' },
+    { value: '6', viewValue: 'Arquitectura' },
   ];
+
   dataSource : any[] = [];
   displayedColumns: string[] = ['index', 'Nombres', 'Apellidos', 'Celular', 'Correo', 'Profesion', 'Acciones'];
 

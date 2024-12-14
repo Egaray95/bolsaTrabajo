@@ -20,10 +20,7 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import Swal from 'sweetalert2';
 import { AuthService } from 'src/app/services/auth-service.service';
 import { CommonModule } from '@angular/common';
-interface profesion {
-  value: string;
-  viewValue: string;
-}
+
 @Component({
   selector: 'app-side-register-recluta',
   standalone: true,
@@ -46,13 +43,6 @@ interface profesion {
 })
 export class SideRegisterReclutaComponent implements OnInit {
   registroForm: FormGroup;
-
-  profesionList: profesion[] = [
-    { value: '1', viewValue: 'Ingeniero Civil' },
-    { value: '2', viewValue: 'Administrador' },
-    { value: '3', viewValue: 'Médico General' },
-    { value: '4', viewValue: 'Ingeniero de Sistemas' },
-  ];
 
 
   constructor(private fb: FormBuilder, private usuarioService: AuthService,private router: Router) {
